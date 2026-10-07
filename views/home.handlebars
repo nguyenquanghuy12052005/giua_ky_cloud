@@ -1,0 +1,15 @@
+<h1>Quản lý sách</h1>
+<p>Số lần truy cập (session): {{views}}</p>
+{{#if error}}<p style="color:red">{{error}}</p>{{/if}}
+<form method="POST" action="/books">
+  <input name="code" placeholder="Mã (bắt đầu bằng 3 số cuối MSSV)" required>
+  <input name="name" placeholder="Tên sách" required>
+  <input name="price" type="number" step="0.01" placeholder="Giá gốc" required>
+  <button>Thêm</button>
+</form>
+<table border="1">
+  <tr><th>Mã</th><th>Tên</th><th>Giá gốc</th><th>VAT</th><th>Giá sau thuế</th></tr>
+  {{#each books}}
+  <tr><td>{{code}}</td><td>{{name}}</td><td>{{price}}</td><td>{{vat}}%</td><td>{{priceAfterTax}}</td></tr>
+  {{/each}}
+</table>
