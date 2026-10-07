@@ -9,3 +9,4 @@ async function connectAll() {
 const readDb = () => readClient.db(process.env.DB_NAME);   // dùng cho find
 const writeDb = () => writeClient.db(process.env.DB_NAME); // dùng cho insert
 module.exports = { connectAll, readDb, writeDb, writeClient };
+// Dual connection: reader account (find) and writer account (insert)
